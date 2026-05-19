@@ -30,11 +30,11 @@ td{vertical-align:middle}
 <div class="topbar">
   <div>
     <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
-    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 19, 2026 at 01:04 PM</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 19, 2026 at 01:20 PM</div>
   </div>
   <div style="display:flex;gap:24px">
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">5</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">5</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
   </div>
 </div>
 
@@ -51,8 +51,8 @@ td{vertical-align:middle}
         <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="lasalle">LaSalle</option><option value="lakefront estates">Lakefront Estates</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
       </select>
       <button class="filter-btn active" onclick="filterStatus('all',this)">All (14)</button>
-      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
-      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (5)</button>
+      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (5)</button>
+      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (9)</button>
       <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
         <option value="overdue">Sort: Most Overdue</option>
         <option value="az">Sort: A → Z</option>
@@ -67,29 +67,7 @@ td{vertical-align:middle}
         <th style="width:16%">Days Since</th>
         <th style="width:12%;text-align:center">Status</th>
       </tr></thead>
-      <tbody id="proj-tbody"><tr class="proj-row" data-name="nine orchard" data-status="overdue" data-days="236"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Sep 25, 2025</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">236d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="lasalle" data-status="overdue" data-days="195"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#1F618D;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 05, 2025</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">195d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="bsih" data-status="overdue" data-days="197"
+      <tbody id="proj-tbody"><tr class="proj-row" data-name="bsih" data-status="overdue" data-days="197"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
@@ -111,16 +89,16 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 03, 2025</td>
   <td style="padding:14px 20px;font-size:13px;color:#888">197d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="the montage" data-status="overdue" data-days="144"
+</tr><tr class="proj-row" data-name="nine orchard" data-status="overdue" data-days="236"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#7D6608;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">The Montage</span>
+      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard</span>
     </div>
   </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Dec 26, 2025</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">144d ago</td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Sep 25, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">236d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
 </tr><tr class="proj-row" data-name="one&only moonlight basin" data-status="overdue" data-days="123"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
@@ -133,38 +111,16 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Jan 16, 2026</td>
   <td style="padding:14px 20px;font-size:13px;color:#888">123d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="moncayo" data-status="overdue" data-days="49"
+</tr><tr class="proj-row" data-name="lasalle" data-status="overdue" data-days="195"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#8B5E3C;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moncayo</span>
+      <div style="width:5px;height:36px;border-radius:3px;background:#1F618D;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle</span>
     </div>
   </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Mar 31, 2026</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">49d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="yellowstone club" data-status="overdue" data-days="46"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Apr 03, 2026</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="lakefront estates" data-status="overdue" data-days="46"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#C0392B;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Lakefront Estates</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Apr 03, 2026</td>
-  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 05, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">195d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
 </tr><tr class="proj-row" data-name="moxy (wynwood)" data-status="ok" data-days="8"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
@@ -200,26 +156,70 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:13px;color:#888">13d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="teton outing club" data-status="ok" data-days="22"
-          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#2E7D5E;flex-shrink:0"></div>
       <span style="font-size:14px;font-weight:800;color:#1B3A5C">Teton Outing Club</span>
     </div>
   </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E67E22">Apr 27, 2026</td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">Apr 27, 2026</td>
   <td style="padding:14px 20px;font-size:13px;color:#888">22d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="tih" data-status="ok" data-days="34"
-          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#2E4057;flex-shrink:0"></div>
       <span style="font-size:14px;font-weight:800;color:#1B3A5C">TIH</span>
     </div>
   </td>
-  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E67E22">Apr 15, 2026</td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">Apr 15, 2026</td>
   <td style="padding:14px 20px;font-size:13px;color:#888">34d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="yellowstone club" data-status="ok" data-days="46"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">Apr 03, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="lakefront estates" data-status="ok" data-days="46"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#C0392B;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Lakefront Estates</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">Apr 03, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="moncayo" data-status="ok" data-days="49"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#8B5E3C;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moncayo</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">Mar 31, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">49d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="the montage" data-status="ok" data-days="144"
+          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#7D6608;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">The Montage</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E67E22">Dec 26, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">144d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
 </tr></tbody>
     </table>
@@ -256,63 +256,63 @@ td{vertical-align:middle}
   <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1A7A6E;white-space:nowrap;border-left:4px solid #1A7A6E;background:white">Cormont</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 04</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px solid #E0E6ED;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#AAB">—</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 04</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1F618D;white-space:nowrap;border-left:4px solid #1F618D;background:white">LaSalle</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
   <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 195d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#C0392B;white-space:nowrap;border-left:4px solid #C0392B;background:white">Lakefront Estates</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">3x / year</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 46d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 03</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1B6CA8;white-space:nowrap;border-left:4px solid #1B6CA8;background:white">Long Cove</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Feb 09</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#8B5E3C;white-space:nowrap;border-left:4px solid #8B5E3C;background:white">Moncayo</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 49d ago</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 49d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 13</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#D35400;white-space:nowrap;border-left:4px solid #D35400;background:white">Moxy (Wynwood)</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
   <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 8d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 11</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 11</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#5D6D7E;white-space:nowrap;border-left:4px solid #5D6D7E;background:white">Nine Orchard</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
   <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 236d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px solid #E0E6ED;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#AAB">—</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#0E6655;white-space:nowrap;border-left:4px solid #0E6655;background:white">One&Only Moonlight Basin</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 123d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Jan 16</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E4057;white-space:nowrap;border-left:4px solid #2E4057;background:white">TIH</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 34d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 15</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E7D5E;white-space:nowrap;border-left:4px solid #2E7D5E;background:white">Teton Outing Club</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 22d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 23</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#7D6608;white-space:nowrap;border-left:4px solid #7D6608;background:white">The Montage</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 144d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 144d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#6A4C93;white-space:nowrap;border-left:4px solid #6A4C93;background:white">Yellowstone Club</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 46d ago</td>
   <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
 </tr></tbody>
 </table>
