@@ -33,7 +33,7 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
 <div class="topbar">
   <div>
     <div style="font-size:18px;font-weight:900;letter-spacing:-.3px">EB5 United — Newsletter Dashboard</div>
-    <div style="font-size:11px;opacity:.6;margin-top:2px">Auto-synced · Last updated: May 18, 2026 at 07:23 PM · Excel + Mailchimp</div>
+    <div style="font-size:11px;opacity:.6;margin-top:2px">Auto-synced · Last updated: May 19, 2026 at 10:24 AM · Excel + Mailchimp</div>
   </div>
   <div style="display:flex;gap:20px;align-items:center">
     <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7">Overdue</div></div>
@@ -46,17 +46,17 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
     <div style="color:white;font-size:13px;font-weight:900;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">🚨 Send These Now — Most Overdue Projects</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap"><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #5D6D7E;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
   <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">Nine Orchard</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 235d ago</div>
+  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 236d ago</div>
   <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
      style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
 </div><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #1F618D;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
   <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">LaSalle</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 194d ago</div>
+  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 195d ago</div>
   <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
      style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
 </div><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #922B21;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
   <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">BSIH</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 196d ago</div>
+  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 197d ago</div>
   <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
      style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
 </div></div>
@@ -65,28 +65,38 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
     <div class="kpi"><div class="lbl">Total Projects</div><div class="val" style="color:#1B3A5C">14</div></div>
     <div class="kpi"><div class="lbl">Total MC Campaigns</div><div class="val" style="color:#1B3A5C;font-size:20px;padding-top:4px">1,230</div></div>
     <div class="kpi"><div class="lbl">Events Tracked</div><div class="val" style="color:#2471A3;font-size:20px;padding-top:4px">357</div></div>
-    <div class="kpi"><div class="lbl">Last Sync</div><div class="val" style="color:#888;font-size:12px;padding-top:8px;line-height:1.4">May 18, 2026 at 07:23 PM</div></div>
+    <div class="kpi"><div class="lbl">Last Sync</div><div class="val" style="color:#888;font-size:12px;padding-top:8px;line-height:1.4">May 19, 2026 at 10:24 AM</div></div>
     <div class="kpi" style="border-top:4px solid #E74C3C"><div class="lbl">🔴 Overdue</div><div class="val" style="color:#E74C3C">9</div></div>
     <div class="kpi" style="border-top:4px solid #27AE60"><div class="lbl">🟢 On Track</div><div class="val" style="color:#27AE60">5</div></div>
   </div>
   <div class="tab-btns">
     <button class="tab-btn active" onclick="switchTab('projects',this)">🏗 Project Newsletters</button>
+    <button class="tab-btn" onclick="switchTab('schedule',this)">📆 Annual Schedule</button>
     <button class="tab-btn" onclick="switchTab('events',this)">📅 Events & Reminders</button>
   </div>
+
   <div id="tab-projects" class="tab-panel active">
     <div class="filter-row">
       <input class="search-box" type="text" placeholder="🔍  Search project..." oninput="filterProjects(this.value)">
       <button class="filter-btn active" onclick="filterStatus('all',this)">All (14)</button>
       <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
       <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (5)</button>
+      <select id="sort-select" onchange="sortProjects(this.value)"
+        style="padding:8px 14px;border-radius:8px;border:2px solid #E0E6ED;font-size:12px;font-weight:700;cursor:pointer;color:#1B3A5C;background:white;margin-left:auto">
+        <option value="overdue">Sort: Most Overdue</option>
+        <option value="az">Sort: A → Z</option>
+        <option value="za">Sort: Z → A</option>
+        <option value="newest">Sort: Last Sent (Newest)</option>
+        <option value="oldest">Sort: Last Sent (Oldest)</option>
+      </select>
     </div>
-    <p style="font-size:11px;color:#AAB;margin-bottom:14px">Sorted by most overdue first · Coloured pill = duplicate/segmented send reason · ⚠️ NEW = in Mailchimp but not yet in Excel tracker</p>
-    <div id="proj-list"><div class="proj-card" data-status="overdue" data-name="nine orchard"
+    <p style="font-size:11px;color:#AAB;margin-bottom:14px">Coloured pill = duplicate/segmented send · Total sends pulled live from Mailchimp</p>
+    <div id="proj-list"><div class="proj-card" data-status="overdue" data-name="nine orchard" data-days="236"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #5D6D7E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#5D6D7E">Nine Orchard<span style="font-size:10px;color:#AAB;margin-left:6px">(89 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 235d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 236d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -116,12 +126,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">183</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="lasalle"
+</div><div class="proj-card" data-status="overdue" data-name="lasalle" data-days="195"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1F618D;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#1F618D">LaSalle<span style="font-size:10px;color:#AAB;margin-left:6px">(21 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 194d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 195d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -151,12 +161,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">106</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="bsih"
+</div><div class="proj-card" data-status="overdue" data-name="bsih" data-days="197"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #922B21;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#922B21">BSIH<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 196d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 197d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -174,12 +184,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">30</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="casa lucera"
+</div><div class="proj-card" data-status="overdue" data-name="casa lucera" data-days="197"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #76448A;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#76448A">Casa Lucera<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 196d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 197d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -197,12 +207,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">20</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="the montage"
+</div><div class="proj-card" data-status="overdue" data-name="the montage" data-days="144"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #7D6608;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#7D6608">The Montage<span style="font-size:10px;color:#AAB;margin-left:6px">(58 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 143d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 144d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -232,12 +242,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">324</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="one&only moonlight basin"
+</div><div class="proj-card" data-status="overdue" data-name="one&only moonlight basin" data-days="123"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #0E6655;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#0E6655">One&Only Moonlight Basin<span style="font-size:10px;color:#AAB;margin-left:6px">(41 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 122d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 123d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -263,12 +273,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
       <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">One&Only Moonlight Basin 2025 Update #4 (Excel only)</div>
       <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="moncayo"
+</div><div class="proj-card" data-status="overdue" data-name="moncayo" data-days="49"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #8B5E3C;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#8B5E3C">Moncayo<span style="font-size:10px;color:#AAB;margin-left:6px">(22 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 48d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 49d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -298,12 +308,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">238</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="yellowstone club"
+</div><div class="proj-card" data-status="overdue" data-name="yellowstone club" data-days="46"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #6A4C93;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#6A4C93">Yellowstone Club<span style="font-size:10px;color:#AAB;margin-left:6px">(38 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 45d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 46d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -320,8 +330,8 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
       <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 12, 2026</div>
       <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Yellowstone Club Phase II - Q1 2026 Investor Newslette…</div>
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 79.5%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 13.7%</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 79.7%</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 13.8%</span>
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">951</span>
       </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
     </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #6A4C93;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
@@ -333,12 +343,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">396</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="lakefront estates"
+</div><div class="proj-card" data-status="overdue" data-name="lakefront estates" data-days="46"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #C0392B;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#C0392B">Lakefront Estates<span style="font-size:10px;color:#AAB;margin-left:6px">(22 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 45d ago</span>
+      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 46d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -363,17 +373,17 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
       <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 12, 2026</div>
       <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Lakefront Estates 2026 Update #1</div>
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 49.0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 21.7%</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 49.3%</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 22.0%</span>
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">338</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="ok" data-name="moxy (wynwood)"
+</div><div class="proj-card" data-status="ok" data-name="moxy (wynwood)" data-days="8"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #D35400;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#D35400">Moxy (Wynwood)<span style="font-size:10px;color:#AAB;margin-left:6px">(20 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 7d ago</span>
+      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 8d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -403,12 +413,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">54</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="ok" data-name="long cove"
+</div><div class="proj-card" data-status="ok" data-name="long cove" data-days="13"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1B6CA8;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#1B6CA8">Long Cove<span style="font-size:10px;color:#AAB;margin-left:6px">(5 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 12d ago</span>
+      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 13d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -438,12 +448,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">47</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="ok" data-name="cormont"
+</div><div class="proj-card" data-status="ok" data-name="cormont" data-days="13"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1A7A6E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#1A7A6E">Cormont<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 12d ago</span>
+      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 13d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -465,12 +475,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">11,764</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="ok" data-name="teton outing club"
+</div><div class="proj-card" data-status="ok" data-name="teton outing club" data-days="22"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #2E7D5E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#2E7D5E">Teton Outing Club<span style="font-size:10px;color:#AAB;margin-left:6px">(8 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 21d ago</span>
+      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 22d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -492,12 +502,12 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
         <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">5,761</span>
       </div>
     </div></div>
-</div><div class="proj-card" data-status="ok" data-name="tih"
+</div><div class="proj-card" data-status="ok" data-name="tih" data-days="34"
      style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #2E4057;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div style="font-size:16px;font-weight:900;color:#2E4057">TIH<span style="font-size:10px;color:#AAB;margin-left:6px">(3 total sends)</span></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 33d ago</span>
+      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 34d ago</span>
       <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
          style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
     </div>
@@ -525,6 +535,98 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
     </div></div>
 </div></div>
   </div>
+
+  <div id="tab-schedule" class="tab-panel">
+    <p style="font-size:12px;color:#888;margin-bottom:14px">
+      One row per project · Quarterly grid for 2026 · <span style="color:#27AE60;font-weight:700">✅ Sent</span> &nbsp;
+      <span style="color:#E67E22;font-weight:700">🟡 Pending (this quarter)</span> &nbsp;
+      <span style="color:#E74C3C;font-weight:700">🔴 Missed</span> &nbsp;
+      <span style="color:#CCC;font-weight:700">Upcoming</span>
+    </p>
+    
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:separate;border-spacing:0 6px;background:transparent">
+  <thead><tr style="background:#1B3A5C;color:white">
+    <th style="padding:10px 14px;text-align:left;border-radius:8px 0 0 8px">Project</th>
+    <th style="padding:10px 8px;text-align:left">Cadence</th>
+    <th style="padding:10px 8px;text-align:left;white-space:nowrap">Last Sent</th>
+    <th style="padding:10px 12px;text-align:center;min-width:100px">Q1 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q2 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q3 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q4 2026</th>
+  </tr></thead>
+  <tbody><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#922B21;white-space:nowrap;border-left:4px solid #922B21;background:white">BSIH</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 197d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#76448A;white-space:nowrap;border-left:4px solid #76448A;background:white">Casa Lucera</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 197d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1A7A6E;white-space:nowrap;border-left:4px solid #1A7A6E;background:white">Cormont</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 04</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1F618D;white-space:nowrap;border-left:4px solid #1F618D;background:white">LaSalle</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 195d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#C0392B;white-space:nowrap;border-left:4px solid #C0392B;background:white">Lakefront Estates</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 19</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 03</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1B6CA8;white-space:nowrap;border-left:4px solid #1B6CA8;background:white">Long Cove</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Feb 09</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#8B5E3C;white-space:nowrap;border-left:4px solid #8B5E3C;background:white">Moncayo</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 49d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 09</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 13</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#D35400;white-space:nowrap;border-left:4px solid #D35400;background:white">Moxy (Wynwood)</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 8d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 15</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 11</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#5D6D7E;white-space:nowrap;border-left:4px solid #5D6D7E;background:white">Nine Orchard</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 236d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#0E6655;white-space:nowrap;border-left:4px solid #0E6655;background:white">One&Only Moonlight Basin</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 123d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Jan 16</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E4057;white-space:nowrap;border-left:4px solid #2E4057;background:white">TIH</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 34d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 15</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E7D5E;white-space:nowrap;border-left:4px solid #2E7D5E;background:white">Teton Outing Club</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 22d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 23</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#7D6608;white-space:nowrap;border-left:4px solid #7D6608;background:white">The Montage</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 144d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#6A4C93;white-space:nowrap;border-left:4px solid #6A4C93;background:white">Yellowstone Club</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
+  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
+  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 03</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+</tr></tbody>
+</table>
+</div>
+  </div>
+
   <div id="tab-events" class="tab-panel">
     <div class="filter-row">
       <input class="search-box" type="text" placeholder="🔍  Search events..." oninput="filterEvents(this.value)">
@@ -540,25 +642,25 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
       <tbody id="events-tbody"><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 18, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Consulta Presencial — CDMX y Monterrey, Mayo 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">9.6%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.2%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">20.6%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.7%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">449</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 16, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Consulta Presencial — CDMX y Monterrey, Mayo 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">27.1%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">28.2%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.2%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">453</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 16, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Abhishek in Singapore (May 17–18) & Hong Kong (May 20–2…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">36.4%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">36.8%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.8%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">765</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 13, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">Thank You for Joining Us in Washington, D.C.</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">55.0%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">55.3%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">9.0%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">307</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
@@ -606,7 +708,7 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 01, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited — EB5 United Investor Appreciation Event, May–June…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">49.8%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">49.9%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.0%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">5,814</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
@@ -648,7 +750,7 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 20, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited — EB-5 Program Update & Investor Seminar, May–June…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">50.3%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">50.4%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.1%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">5,769</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
@@ -702,7 +804,7 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
 </tr><tr style="border-bottom:1px solid #F0F3F7">
   <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 21, 2026</td>
   <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Bay Area Investor Appreciation Event (24th Jan / Sat)</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">69.7%</span></td>
+  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">69.8%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">2.5%</span></td>
   <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">1,781</td>
 </tr><tr style="border-bottom:1px solid #F0F3F7">
@@ -722,12 +824,31 @@ td{vertical-align:top}tr:hover td{background:#FAFBFC}
   </div>
 </div>
 <script>
-function switchTab(name,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active');}
+function switchTab(name,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
 var cs='all',qs='';
 function filterStatus(s,btn){cs=s;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilters();}
 function filterProjects(v){qs=v.toLowerCase();applyFilters();}
 function applyFilters(){document.querySelectorAll('.proj-card').forEach(c=>{var n=c.dataset.name||'',st=c.dataset.status||'';c.style.display=(!qs||n.includes(qs))&&(cs==='all'||st===cs)?'':'none';});}
 function filterEvents(v){v=v.toLowerCase();document.querySelectorAll('#events-tbody tr').forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?'':'none';});}
+function sortProjects(val){
+  var container=document.getElementById('proj-list');
+  var cards=Array.from(container.querySelectorAll('.proj-card'));
+  cards.sort(function(a,b){
+    if(val==='az') return (a.dataset.name||'').localeCompare(b.dataset.name||'');
+    if(val==='za') return (b.dataset.name||'').localeCompare(a.dataset.name||'');
+    if(val==='newest') return parseInt(a.dataset.days||9999)-parseInt(b.dataset.days||9999);
+    if(val==='oldest') return parseInt(b.dataset.days||9999)-parseInt(a.dataset.days||9999);
+    var aO=a.dataset.status==='overdue'?1:0,bO=b.dataset.status==='overdue'?1:0;
+    if(aO!==bO) return bO-aO;
+    return parseInt(b.dataset.days||0)-parseInt(a.dataset.days||0);
+  });
+  cards.forEach(c=>container.appendChild(c));
+}
 </script>
 </body>
 </html>
