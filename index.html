@@ -3,859 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EB5 United — Newsletter Dashboard</title>
+<title>EB5 United — Newsletter Status</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#F0F3F7;min-height:100vh;color:#2C3E50}
-.topbar{background:linear-gradient(135deg,#1B3A5C 0%,#2471A3 100%);color:white;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px}
-.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:24px}
-.kpi{background:white;border-radius:10px;padding:14px 10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);text-align:center}
-.kpi .val{font-size:26px;font-weight:900;margin:6px 0;line-height:1}
-.kpi .lbl{font-size:10px;color:#AAB;text-transform:uppercase;letter-spacing:.6px;font-weight:700}
-.priority-banner{background:linear-gradient(135deg,#E74C3C,#C0392B);border-radius:12px;padding:18px 22px;margin-bottom:24px;box-shadow:0 4px 16px rgba(231,76,60,0.25)}
-.tab-btns{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-.tab-btn{padding:9px 20px;border-radius:20px;border:2px solid #1B3A5C;background:white;color:#1B3A5C;font-weight:800;font-size:13px;cursor:pointer;transition:.2s}
-.tab-btn.active{background:#1B3A5C;color:white}
-.tab-panel{display:none}.tab-panel.active{display:block}
-.filter-row{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
-.filter-btn{padding:6px 14px;border-radius:14px;border:2px solid #E0E6ED;background:white;color:#666;font-weight:700;font-size:12px;cursor:pointer;transition:.2s}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#F0F3F7;min-height:100vh}
+.topbar{background:linear-gradient(135deg,#1B3A5C 0%,#2471A3 100%);color:white;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px}
+.controls{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+select{padding:9px 14px;border-radius:8px;border:2px solid #D0D7DE;font-size:13px;font-weight:600;cursor:pointer;color:#1B3A5C;background:white}
+select:focus{outline:none;border-color:#2471A3}
+.filter-btn{padding:8px 16px;border-radius:8px;border:2px solid #D0D7DE;background:white;color:#666;font-weight:700;font-size:12px;cursor:pointer}
 .filter-btn.active{border-color:#1B3A5C;background:#1B3A5C;color:white}
-.search-box{padding:8px 14px;border-radius:8px;border:2px solid #E0E6ED;font-size:13px;min-width:220px;outline:none}
-.search-box:focus{border-color:#2471A3}
-table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-th{background:#1B3A5C;color:white;padding:11px 14px;font-size:11px;text-align:left;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
-td{vertical-align:top}tr:hover td{background:#FAFBFC}
-@media(max-width:768px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.topbar{flex-direction:column;gap:8px;text-align:center}}
+table{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+thead th{background:#1B3A5C;color:white;padding:13px 20px;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{filter:brightness(0.97)}
+td{vertical-align:middle}
+@media(max-width:600px){.topbar{flex-direction:column;gap:8px}.controls{flex-direction:column;align-items:stretch}}
 </style>
 </head>
 <body>
 <div class="topbar">
   <div>
-    <div style="font-size:18px;font-weight:900;letter-spacing:-.3px">EB5 United — Newsletter Dashboard</div>
-    <div style="font-size:11px;opacity:.6;margin-top:2px">Auto-synced · Last updated: May 19, 2026 at 11:48 AM · Excel + Mailchimp</div>
+    <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 19, 2026 at 12:43 PM</div>
   </div>
-  <div style="display:flex;gap:20px;align-items:center">
-    <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7">Overdue</div></div>
-    <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#FFD93D">0</div><div style="font-size:10px;opacity:.7">Due Soon</div></div>
-    <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#6BCB77">5</div><div style="font-size:10px;opacity:.7">On Track</div></div>
+  <div style="display:flex;gap:24px">
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">5</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
   </div>
 </div>
+
 <div class="wrap">
-  <div class="priority-banner" style="margin-top:20px">
-    <div style="color:white;font-size:13px;font-weight:900;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">🚨 Send These Now — Most Overdue Projects</div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap"><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #5D6D7E;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
-  <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">Nine Orchard</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 236d ago</div>
-  <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-     style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
-</div><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #1F618D;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
-  <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">LaSalle</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 195d ago</div>
-  <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-     style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
-</div><div style="background:white;border-radius:10px;padding:15px 18px;border-left:5px solid #922B21;flex:1;min-width:220px;box-shadow:0 2px 8px rgba(231,76,60,0.12)">
-  <div style="font-size:14px;font-weight:900;color:#1B3A5C;margin-bottom:4px">BSIH</div>
-  <div style="font-size:12px;color:#888;font-weight:600;margin-bottom:10px">Last sent 197d ago</div>
-  <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-     style="display:inline-block;background:#E74C3C;color:white;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create Campaign →</a>
-</div></div>
-  </div>
-  <div class="kpi-grid">
-    <div class="kpi"><div class="lbl">Total Projects</div><div class="val" style="color:#1B3A5C">14</div></div>
-    <div class="kpi"><div class="lbl">Total MC Campaigns</div><div class="val" style="color:#1B3A5C;font-size:20px;padding-top:4px">1,230</div></div>
-    <div class="kpi"><div class="lbl">Events Tracked</div><div class="val" style="color:#2471A3;font-size:20px;padding-top:4px">357</div></div>
-    <div class="kpi"><div class="lbl">Last Sync</div><div class="val" style="color:#888;font-size:12px;padding-top:8px;line-height:1.4">May 19, 2026 at 11:48 AM</div></div>
-    <div class="kpi" style="border-top:4px solid #E74C3C"><div class="lbl">🔴 Overdue</div><div class="val" style="color:#E74C3C">9</div></div>
-    <div class="kpi" style="border-top:4px solid #27AE60"><div class="lbl">🟢 On Track</div><div class="val" style="color:#27AE60">5</div></div>
-  </div>
-  <div class="tab-btns">
-    <button class="tab-btn active" onclick="switchTab('projects',this)">🏗 Project Newsletters</button>
-    <button class="tab-btn" onclick="switchTab('schedule',this)">📆 Annual Schedule</button>
-    <button class="tab-btn" onclick="switchTab('events',this)">📅 Events & Reminders</button>
+  <div class="controls">
+    <select id="proj-picker" onchange="pickProject(this.value)">
+      <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="lasalle">LaSalle</option><option value="lakefront estates">Lakefront Estates</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
+    </select>
+    <button class="filter-btn active" onclick="filterStatus('all',this)">All (14)</button>
+    <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
+    <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (5)</button>
+    <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
+      <option value="overdue">Sort: Most Overdue</option>
+      <option value="az">Sort: A → Z</option>
+      <option value="newest">Sort: Last Sent (Newest)</option>
+      <option value="oldest">Sort: Last Sent (Oldest)</option>
+    </select>
   </div>
 
-  <div id="tab-projects" class="tab-panel active">
-    <div class="filter-row">
-      <select id="proj-picker" onchange="pickProject(this.value)"
-        style="padding:9px 14px;border-radius:8px;border:2px solid #1B3A5C;font-size:13px;font-weight:700;cursor:pointer;color:#1B3A5C;background:white;min-width:200px">
-        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="lasalle">LaSalle</option><option value="lakefront estates">Lakefront Estates</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
-      </select>
-      <button class="filter-btn active" onclick="filterStatus('all',this)">All</button>
-      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
-      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (5)</button>
-      <select id="sort-select" onchange="sortProjects(this.value)"
-        style="padding:8px 14px;border-radius:8px;border:2px solid #E0E6ED;font-size:12px;font-weight:700;cursor:pointer;color:#1B3A5C;background:white;margin-left:auto">
-        <option value="overdue">Sort: Most Overdue</option>
-        <option value="az">Sort: A → Z</option>
-        <option value="za">Sort: Z → A</option>
-        <option value="newest">Sort: Last Sent (Newest)</option>
-        <option value="oldest">Sort: Last Sent (Oldest)</option>
-      </select>
-    </div>
-    <p style="font-size:11px;color:#AAB;margin-bottom:14px">Coloured pill = duplicate/segmented send · Total sends pulled live from Mailchimp</p>
-    <div id="proj-list"><div class="proj-card" data-status="overdue" data-name="nine orchard" data-days="236"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #5D6D7E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#5D6D7E">Nine Orchard<span style="font-size:10px;color:#AAB;margin-left:6px">(89 total sends)</span></div>
+  <table>
+    <thead><tr>
+      <th style="width:44%">Project</th>
+      <th style="width:28%">Last Newsletter Sent</th>
+      <th style="width:16%">Days Since</th>
+      <th style="width:12%;text-align:center">Status</th>
+    </tr></thead>
+    <tbody id="proj-tbody"><tr class="proj-row" data-name="nine orchard" data-status="overdue" data-days="236"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 236d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #5D6D7E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 25, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">EB5 United Completa el Reembolso Total del Préstamo de…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">📬 30.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 0.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">1,775</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #5D6D7E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 19, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">EB5 United Delivers Full $88MM Loan Repayment on Nine …</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 66.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 3.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">1,115</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #5D6D7E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Aug 21, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Closing of Nine Orchard Hotel & EB-5 Investment Repaym…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 91.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 1.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">183</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="lasalle" data-days="195"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1F618D;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#1F618D">LaSalle<span style="font-size:10px;color:#AAB;margin-left:6px">(21 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Sep 25, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">236d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="lasalle" data-status="overdue" data-days="195"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 195d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#1F618D;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1F618D;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Nov 05, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">LaSalle: 2025 Biannual Update #2</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 67.4%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 6.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">97</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1F618D;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 19, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">LaSalle: 2025 Biannual Update 1</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 72.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 9.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">106</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1F618D;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 06, 2024</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">LaSalle: 2024 Biannual Update #2</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 67.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 11.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">106</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="bsih" data-days="197"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #922B21;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#922B21">BSIH<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 05, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">195d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="bsih" data-status="overdue" data-days="197"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 197d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#922B21;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">BSIH</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #922B21;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Nov 03, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">BSIH – Formal Notification of Redeployment of EB-5 Inv…</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #922B21;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 09, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Formal Notice of Redeployment of EB-5 Investment - BSI…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 100%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 3.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">30</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="casa lucera" data-days="197"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #76448A;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#76448A">Casa Lucera<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 03, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">197d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="casa lucera" data-status="overdue" data-days="197"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 197d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#76448A;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Casa Lucera</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #76448A;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Nov 03, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Casa Lucera – Formal Notification of Redeployment of E…</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #76448A;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 09, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Formal Notice of Redeployment of EB-5 Investment - Cas…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 100%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">20</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="the montage" data-days="144"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #7D6608;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#7D6608">The Montage<span style="font-size:10px;color:#AAB;margin-left:6px">(58 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Nov 03, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">197d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="the montage" data-status="overdue" data-days="144"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 144d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#7D6608;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">The Montage</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #7D6608;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Dec 26, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Montage 2025 Biannual Investor Newsletter #2</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 67.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 1.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">305</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #7D6608;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">May 30, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Montage 2025 Biannual Investor Newsletter #1</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 66.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 1.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">326</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #7D6608;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 03, 2024</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Montage 2024 Biannual Update #2</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 62.4%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 2.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">324</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="one&only moonlight basin" data-days="123"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #0E6655;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#0E6655">One&Only Moonlight Basin<span style="font-size:10px;color:#AAB;margin-left:6px">(41 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Dec 26, 2025</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">144d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="one&only moonlight basin" data-status="overdue" data-days="123"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 123d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#0E6655;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">One&Only Moonlight Basin</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #0E6655;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Jan 16, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">One&Only 月光盆地度假村 2025 年最新动态第 4 期</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 67.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 9.4%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">180</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #0E6655;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Dec 31, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">One&Only Moonlight Basin 2025 Update #4</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 76.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 17.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">341</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #0E6655;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Dec 30, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">One&Only Moonlight Basin 2025 Update #4 (Excel only)</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="moncayo" data-days="49"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #8B5E3C;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#8B5E3C">Moncayo<span style="font-size:10px;color:#AAB;margin-left:6px">(22 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Jan 16, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">123d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="moncayo" data-status="overdue" data-days="49"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 49d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#8B5E3C;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moncayo</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #8B5E3C;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 31, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Moncayo 2025 年第 4 季度项目进展</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 56.5%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 14.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">216</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #8B5E3C;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 31, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">K-1部分澄清 - Moncayo 2025年第四季度投资者通讯</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 69.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 6.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">216</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #8B5E3C;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 17, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">K-1 Section Clarification - Moncayo Q4 2025 Newsletter</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 74.4%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 26.5%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">238</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="yellowstone club" data-days="46"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #6A4C93;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#6A4C93">Yellowstone Club<span style="font-size:10px;color:#AAB;margin-left:6px">(38 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Mar 31, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">49d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="yellowstone club" data-status="overdue" data-days="46"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 46d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #6A4C93;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 03, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">黄石俱乐部二期 2026 年第一季度投资者 通讯</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 72.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 5.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">412</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #6A4C93;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 12, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Yellowstone Club Phase II - Q1 2026 Investor Newslette…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 79.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 13.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">951</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #6A4C93;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Dec 15, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">黄石俱乐部二期项目 2025 年第三季度进展更新</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 76.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 6.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">396</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="overdue" data-name="lakefront estates" data-days="46"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #C0392B;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#C0392B">Lakefront Estates<span style="font-size:10px;color:#AAB;margin-left:6px">(22 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Apr 03, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="lakefront estates" data-status="overdue" data-days="46"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E74C3C;font-weight:700">Last sent 46d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#C0392B;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Lakefront Estates</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #C0392B;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 03, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">湖滨庄园2026年最新进展报告第1期</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 48.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 11.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">60</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #C0392B;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 19, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Lakefront Estates & Villas 2025 Schedule K-1s</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 80.8%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 37.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">125</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #C0392B;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Mar 12, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Lakefront Estates 2026 Update #1</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 49.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 22.0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">338</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="ok" data-name="moxy (wynwood)" data-days="8"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #D35400;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#D35400">Moxy (Wynwood)<span style="font-size:10px;color:#AAB;margin-left:6px">(20 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E74C3C">Apr 03, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">46d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="moxy (wynwood)" data-status="ok" data-days="8"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 8d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#D35400;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moxy (Wynwood)</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #D35400;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">May 11, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Moxy Miami Wynwood | 2026 Biannual Investor Update</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 73.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 10.5%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">57</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #D35400;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 15, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Wynwood Hospitality Holdings, LLC K-1</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 89.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 24.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">29</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #D35400;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 12, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Moxy 2025 Biannual Update</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 83.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 16.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">54</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="ok" data-name="long cove" data-days="13"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1B6CA8;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#1B6CA8">Long Cove<span style="font-size:10px;color:#AAB;margin-left:6px">(5 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">May 11, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">8d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="long cove" data-status="ok" data-days="13"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 13d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#1B6CA8;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Long Cove</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1B6CA8;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">May 06, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Long Cove Q2 2026 | Investor Update</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 83.3%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 17.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">108</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1B6CA8;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Feb 09, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Long Cove Q1 2026 Update</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 90.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 22.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">97</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1B6CA8;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Dec 11, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">EB5 United’s Long Cove Project Receives I-956F Approva…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 76.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 10.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">47</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="ok" data-name="cormont" data-days="13"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #1A7A6E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#1A7A6E">Cormont<span style="font-size:10px;color:#AAB;margin-left:6px">(2 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">May 06, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">13d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="cormont" data-status="ok" data-days="13"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#27AE60;font-weight:700">Last sent 13d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#1A7A6E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Cormont</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1A7A6E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">May 06, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">EB5 United's Cormont Receives I-956F Approval from USC…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 84.1%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">44</span>
-      </div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #1A7A6E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">May 04, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">EB5 United's Cormont Receives I-956F Approval from USC…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">📬 45.2%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 0.6%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">11,764</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="ok" data-name="teton outing club" data-days="22"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #2E7D5E;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#2E7D5E">Teton Outing Club<span style="font-size:10px;color:#AAB;margin-left:6px">(8 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#27AE60">May 06, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">13d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="teton outing club" data-status="ok" data-days="22"
+          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 22d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#2E7D5E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Teton Outing Club</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E7D5E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 27, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Teton's Investors April 27 – 800 Update (Excel only)</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E7D5E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 27, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Teton's 800_April27 (Excel only)</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E7D5E;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 23, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Teton Outing Club — First I-526E Approval in 4 Months …</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">📬 39.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E74C3C;font-weight:700">🖱 1.2%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">5,761</span>
-      </div>
-    </div></div>
-</div><div class="proj-card" data-status="ok" data-name="tih" data-days="34"
-     style="background:#FAFBFC;border-radius:12px;padding:18px 20px;margin-bottom:12px;border-left:5px solid #2E4057;box-shadow:0 1px 6px rgba(0,0,0,0.06)">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="font-size:16px;font-weight:900;color:#2E4057">TIH<span style="font-size:10px;color:#AAB;margin-left:6px">(3 total sends)</span></div>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E67E22">Apr 27, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">22d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
+</tr><tr class="proj-row" data-name="tih" data-status="ok" data-days="34"
+          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+  <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;color:#E67E22;font-weight:700">Last sent 34d ago</span>
-      <a href="https://us9.admin.mailchimp.com/campaigns/#/create-campaign/explore-types" target="_blank"
-         style="background:#1B3A5C;color:white;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">✉️ Create</a>
+      <div style="width:5px;height:36px;border-radius:3px;background:#2E4057;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">TIH</span>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E4057;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Apr 15, 2026</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Texas Infrastructure Holdings — Q1 2026 Investor Newsl…</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 80.7%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">🖱 28.9%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">83</span>
-      </div><div style="margin-top:5px"><span style="background:#E3F2FD;color:#1565C0;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700">👥 Investor segment</span></div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E4057;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Nov 03, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">TIH – Formal Notification of Redeployment of EB-5 Inve…</div>
-      <div style="font-size:10px;color:#bbb;margin-top:5px;font-style:italic">Metrics not yet available</div>
-    </div><div style="flex:1;min-width:180px;background:white;border-radius:10px;padding:11px 13px;border-top:3px solid #2E4057;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-      <div style="font-size:11px;font-weight:800;color:#1A5276;margin-bottom:3px">Sep 09, 2025</div>
-      <div style="font-size:11px;color:#34495E;line-height:1.4;margin-bottom:4px;min-height:28px">Formal Notice of Redeployment of EB-5 Investment - TIH</div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#27AE60;font-weight:700">📬 86.0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#E67E22;font-weight:700">🖱 7.0%</span>
-        <span style="font-size:10px;padding:2px 7px;border-radius:4px;background:#F8F9FA;color:#888">43</span>
-      </div>
-    </div></div>
-</div></div>
-  </div>
-
-  <div id="tab-schedule" class="tab-panel">
-    <p style="font-size:12px;color:#888;margin-bottom:14px">
-      One row per project · Quarterly grid for 2026 · <span style="color:#27AE60;font-weight:700">✅ Sent</span> &nbsp;
-      <span style="color:#E67E22;font-weight:700">🟡 Pending (this quarter)</span> &nbsp;
-      <span style="color:#E74C3C;font-weight:700">🔴 Missed</span> &nbsp;
-      <span style="color:#CCC;font-weight:700">Upcoming</span>
-    </p>
-    
-<div style="overflow-x:auto">
-<table style="width:100%;border-collapse:separate;border-spacing:0 6px;background:transparent">
-  <thead><tr style="background:#1B3A5C;color:white">
-    <th style="padding:10px 14px;text-align:left;border-radius:8px 0 0 8px">Project</th>
-    <th style="padding:10px 8px;text-align:left">Cadence</th>
-    <th style="padding:10px 8px;text-align:left;white-space:nowrap">Last Sent</th>
-    <th style="padding:10px 12px;text-align:center;min-width:100px">Q1 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q2 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q3 2026</th><th style="padding:10px 12px;text-align:center;min-width:100px">Q4 2026</th>
-  </tr></thead>
-  <tbody><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#922B21;white-space:nowrap;border-left:4px solid #922B21;background:white">BSIH</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 197d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#76448A;white-space:nowrap;border-left:4px solid #76448A;background:white">Casa Lucera</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 197d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1A7A6E;white-space:nowrap;border-left:4px solid #1A7A6E;background:white">Cormont</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 04</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1F618D;white-space:nowrap;border-left:4px solid #1F618D;background:white">LaSalle</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 195d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#C0392B;white-space:nowrap;border-left:4px solid #C0392B;background:white">Lakefront Estates</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 19</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 03</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1B6CA8;white-space:nowrap;border-left:4px solid #1B6CA8;background:white">Long Cove</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 13d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Feb 09</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#8B5E3C;white-space:nowrap;border-left:4px solid #8B5E3C;background:white">Moncayo</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 49d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 09</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 13</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#D35400;white-space:nowrap;border-left:4px solid #D35400;background:white">Moxy (Wynwood)</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
-  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 8d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 15</div><div style="font-size:11px;font-weight:800;color:#1B6CA8">May 11</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#5D6D7E;white-space:nowrap;border-left:4px solid #5D6D7E;background:white">Nine Orchard</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 236d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#0E6655;white-space:nowrap;border-left:4px solid #0E6655;background:white">One&Only Moonlight Basin</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 123d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Jan 16</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E4057;white-space:nowrap;border-left:4px solid #2E4057;background:white">TIH</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">~8/yr</td>
-  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 34d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 15</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E7D5E;white-space:nowrap;border-left:4px solid #2E7D5E;background:white">Teton Outing Club</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#27AE60;font-weight:700;white-space:nowrap;background:white">🟢 22d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 23</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#7D6608;white-space:nowrap;border-left:4px solid #7D6608;background:white">The Montage</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Bimonthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 144d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#FFF0F0;border:2px solid #FFAAAA;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:700;color:#E74C3C">Missed</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
-</tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#6A4C93;white-space:nowrap;border-left:4px solid #6A4C93;background:white">Yellowstone Club</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Monthly</td>
-  <td style="padding:10px 8px;font-size:11px;color:#E74C3C;font-weight:700;white-space:nowrap;background:white">🔴 46d ago</td>
-  <td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:100px"><div style="font-size:11px;font-weight:800;color:#1B6CA8">Apr 03</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:100px"><div style="font-size:11px;color:#CCC">Upcoming</div></td>
+  </td>
+  <td style="padding:14px 20px;font-size:14px;font-weight:700;color:#E67E22">Apr 15, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;color:#888">34d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
 </tr></tbody>
-</table>
+  </table>
+  <div style="margin-top:12px;font-size:11px;color:#AAB;text-align:right">🟢 On track &nbsp;·&nbsp; 🟡 Due soon &nbsp;·&nbsp; 🔴 Overdue &nbsp;·&nbsp; Auto-refreshes every hour</div>
 </div>
-  </div>
 
-  <div id="tab-events" class="tab-panel">
-    <div class="filter-row">
-      <input class="search-box" type="text" placeholder="🔍  Search events..." oninput="filterEvents(this.value)">
-      <span style="font-size:12px;color:#888">357 event/general campaigns</span>
-    </div>
-    <table>
-      <thead><tr>
-        <th style="width:110px">Date</th><th>Campaign</th>
-        <th style="width:80px;text-align:center">Open %</th>
-        <th style="width:80px;text-align:center">Click %</th>
-        <th style="width:90px;text-align:center">Recipients</th>
-      </tr></thead>
-      <tbody id="events-tbody"><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 18, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Consulta Presencial — CDMX y Monterrey, Mayo 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">21.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">449</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 16, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Consulta Presencial — CDMX y Monterrey, Mayo 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">28.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.2%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">453</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 16, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Abhishek in Singapore (May 17–18) & Hong Kong (May 20–2…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">36.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">765</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 13, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Thank You for Joining Us in Washington, D.C.</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">55.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">9.0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">307</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 11, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">REMINDER: Gavin Viljoen Is in London This Week — May 11–16, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">38.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">141</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 07, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 In-Person Consultation — Singapore & Hong Kong, May 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">45.6%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">173</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 07, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 In-Person Consultation — London, May 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">53.2%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">3.5%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">141</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 07, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 In-Person Consultation — Singapore & Hong Kong, May 2026</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">44.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">2.1%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">625</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 04, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Thank You — EB5 United Investor Appreciation Event · New Jersey</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">61.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">76</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 02, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Today: EB5 United Investor Appreciation Event · New Jersey · 12–3…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">52.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">5.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">75</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 01, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Tomorrow: EB5 United Investor Appreciation Event · New Jersey · M…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">66.1%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">4.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">62</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">May 01, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited — EB5 United Investor Appreciation Event, May–June…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">49.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">5,814</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 29, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Tonight! Cocktails & Food after IIUSA Welcome Reception · Apr 29</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">61.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">14.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">290</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 28, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Cocktails & Food after IIUSA Welcome Reception · Apr 29</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">63.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">11.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">273</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 27, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">800+ I-526E Approvals — EB5 United Dominates Rural EB-5 in the Po…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">45.0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.5%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">11,710</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 27, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">800+ I-526E Approvals — EB5 United Dominates Rural EB-5 in the Po…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">64.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">54</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 23, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Private EB-5 Consultations with Wenbo Yang - US Tour, Apr 23 - Ma…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">55.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">94</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 22, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited - EB-5 Industry Reception, Washington D.C. - April…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">67.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">13.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">253</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 20, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited — EB-5 Program Update & Investor Seminar, May–June…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">50.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.1%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">5,769</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Apr 20, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">You're Invited — EB5 United Investor Appreciation Event, May–June…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#27AE60;font-weight:700">70.6%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">4.5%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">1,531</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Mar 02, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Grandfathering Deadline: File Before September 30, 2026 or R…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">36.1%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">4,402</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Feb 27, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">EB-5 Grandfathering Deadline: File Before September 30, 2026 or R…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">46.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">16,838</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Feb 13, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: In-Person EB-5 Consultations in Alexandria, Tampa, Char…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">48.6%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">186</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Feb 09, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: In-Person EB-5 Consultations at M-Club, San Jose Marrio…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">13.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.6%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">342</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Feb 05, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: In-Person EB-5 Consultations at M-Club, San Jose Marrio…</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">36.2%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">522</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 23, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">We’re Excited to See You Tomorrow in the Bay Area!</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">31.7%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.4%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">16,753</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 23, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">We’re Excited to See You Tomorrow in the Bay Area!</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">60.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">1.1%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">1,780</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 21, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Bay Area Investor Appreciation Event (24th Jan / Sat)</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">69.8%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">2.5%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">1,781</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 21, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">Reminder: Bay Area Investor Appreciation Event (Jan 24 / Sat)</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">33.9%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E74C3C;font-weight:700">0.5%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">16,752</td>
-</tr><tr style="border-bottom:1px solid #F0F3F7">
-  <td style="padding:10px 14px;font-size:12px;color:#1B3A5C;font-weight:700;white-space:nowrap">Jan 19, 2026</td>
-  <td style="padding:10px 14px;font-size:12px;color:#34495E">You’re Invited: An Exclusive Evening with EB5 United</td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#27AE60;font-weight:700">75.0%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center"><span style="color:#E67E22;font-weight:700">8.3%</span></td>
-  <td style="padding:10px 14px;font-size:12px;text-align:center;color:#888">48</td>
-</tr></tbody>
-    </table>
-  </div>
-</div>
 <script>
-function switchTab(name,btn){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  btn.classList.add('active');
-}
-var cs='all',pq='';
+var cs='all', pq='';
+function pickProject(v){pq=v;applyFilters();}
 function filterStatus(s,btn){cs=s;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilters();}
-function pickProject(v){pq=v.toLowerCase();applyFilters();}
-function applyFilters(){document.querySelectorAll('.proj-card').forEach(c=>{
-  var n=c.dataset.name||'',st=c.dataset.status||'';
-  var nameOk=!pq||n===pq;
-  var statusOk=cs==='all'||st===cs;
-  c.style.display=nameOk&&statusOk?'':'none';
-});}
-function filterEvents(v){v=v.toLowerCase();document.querySelectorAll('#events-tbody tr').forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?'':'none';});}
-function sortProjects(val){
-  var container=document.getElementById('proj-list');
-  var cards=Array.from(container.querySelectorAll('.proj-card'));
-  cards.sort(function(a,b){
+function applyFilters(){
+  document.querySelectorAll('#proj-tbody tr').forEach(r=>{
+    var nameOk=!pq||r.dataset.name===pq;
+    var statusOk=cs==='all'||r.dataset.status===cs;
+    r.style.display=nameOk&&statusOk?'':'none';
+  });
+}
+function sortRows(val){
+  var tbody=document.getElementById('proj-tbody');
+  var rows=Array.from(tbody.querySelectorAll('tr'));
+  rows.sort(function(a,b){
     if(val==='az') return (a.dataset.name||'').localeCompare(b.dataset.name||'');
-    if(val==='za') return (b.dataset.name||'').localeCompare(a.dataset.name||'');
     if(val==='newest') return parseInt(a.dataset.days||9999)-parseInt(b.dataset.days||9999);
     if(val==='oldest') return parseInt(b.dataset.days||9999)-parseInt(a.dataset.days||9999);
     var aO=a.dataset.status==='overdue'?1:0,bO=b.dataset.status==='overdue'?1:0;
     if(aO!==bO) return bO-aO;
     return parseInt(b.dataset.days||0)-parseInt(a.dataset.days||0);
   });
-  cards.forEach(c=>container.appendChild(c));
+  rows.forEach(r=>tbody.appendChild(r));
 }
 </script>
 </body>
