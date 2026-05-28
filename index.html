@@ -33,10 +33,10 @@ td{vertical-align:middle}
 <div class="topbar">
   <div>
     <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
-    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 28, 2026 at 12:43 PM</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 28, 2026 at 12:48 PM</div>
   </div>
   <div style="display:flex;gap:24px">
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">7</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
     <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
   </div>
 </div>
@@ -51,10 +51,10 @@ td{vertical-align:middle}
   <div id="tab-status" class="tab-panel active">
     <div class="controls">
       <select id="proj-picker" onchange="pickProject(this.value)">
-        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="direct eb-5: lasalle chicago">Direct EB-5: LaSalle Chicago</option><option value="direct eb-5: queen restaurant">Direct EB-5: Queen Restaurant</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="marriott la live">Marriott LA Live</option><option value="marriott pearl district (portland)">Marriott Pearl District (Portland)</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
+        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="lasalle chicago (direct)">LaSalle Chicago (Direct)</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="queen restaurant and lounge">Queen Restaurant and Lounge</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
       </select>
-      <button class="filter-btn active" onclick="filterStatus('all',this)">All (18)</button>
-      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
+      <button class="filter-btn active" onclick="filterStatus('all',this)">All (16)</button>
+      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (7)</button>
       <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (9)</button>
       <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
         <option value="oldest" selected>Sort: Last Sent (Oldest)</option>
@@ -71,48 +71,24 @@ td{vertical-align:middle}
         <th style="width:10%">Days Since</th>
         <th style="width:10%;text-align:center">Status</th>
       </tr></thead>
-      <tbody id="proj-tbody"><tr class="proj-row" data-name="marriott pearl district (portland)" data-status="overdue" data-days="9999"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#1E8449;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Marriott Pearl District (Portland)</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="marriott la live" data-status="overdue" data-days="9999"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#B7950B;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Marriott LA Live</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="direct eb-5: queen restaurant" data-status="overdue" data-days="9999"
+      <tbody id="proj-tbody"><tr class="proj-row" data-name="queen restaurant and lounge" data-status="overdue" data-days="9999"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#884EA0;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Direct EB-5: Queen Restaurant</span>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Queen Restaurant and Lounge</span>
     </div>
   </td>
   <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="direct eb-5: lasalle chicago" data-status="overdue" data-days="931"
+</tr><tr class="proj-row" data-name="lasalle chicago (direct)" data-status="overdue" data-days="931"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#2874A6;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Direct EB-5: LaSalle Chicago</span>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle Chicago (Direct)</span>
     </div>
   </td>
   <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Nov 09, 2023</td>
@@ -332,17 +308,11 @@ td{vertical-align:middle}
     <div style="font-weight:700;color:#27AE60">🟢 May 06, 2026</div>
     <div style="color:#AAB;font-size:10px;margin-top:2px">22d ago</div>
   </td><td colspan="4" style="padding:8px 14px;text-align:center;background:#F8F9FA;border:1px solid #E0E6ED;border-radius:6px;font-size:11px;color:#AAB;font-style:italic">No history</td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2874A6;white-space:nowrap;border-left:4px solid #2874A6;background:white">Direct EB-5: LaSalle Chicago</td>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2874A6;white-space:nowrap;border-left:4px solid #2874A6;background:white">LaSalle Chicago (Direct)</td>
   <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
   <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
     <div style="font-weight:700;color:#E74C3C">🔴 Nov 09, 2023</div>
     <div style="color:#AAB;font-size:10px;margin-top:2px">931d ago</div>
-  </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#884EA0;white-space:nowrap;border-left:4px solid #884EA0;background:white">Direct EB-5: Queen Restaurant</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
-  <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
-    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
-    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
   </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1F618D;white-space:nowrap;border-left:4px solid #1F618D;background:white">LaSalle Hotel</td>
   <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
@@ -362,18 +332,6 @@ td{vertical-align:middle}
     <div style="font-weight:700;color:#27AE60">🟢 May 06, 2026</div>
     <div style="color:#AAB;font-size:10px;margin-top:2px">22d ago</div>
   </td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q1 2026</div><div style="font-size:12px;font-weight:800;color:#1B6CA8">Feb 09</div></td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q2 2026</div><div style="font-size:12px;font-weight:800;color:#1B6CA8">May 06</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q3 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q4 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#B7950B;white-space:nowrap;border-left:4px solid #B7950B;background:white">Marriott LA Live</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
-  <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
-    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
-    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
-  </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#1E8449;white-space:nowrap;border-left:4px solid #1E8449;background:white">Marriott Pearl District (Portland)</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
-  <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
-    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
-    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
-  </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#8B5E3C;white-space:nowrap;border-left:4px solid #8B5E3C;background:white">Moncayo</td>
   <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
@@ -398,6 +356,12 @@ td{vertical-align:middle}
     <div style="font-weight:700;color:#E74C3C">🔴 Jan 16, 2026</div>
     <div style="color:#AAB;font-size:10px;margin-top:2px">132d ago</div>
   </td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q1 2026</div><div style="font-size:12px;font-weight:800;color:#1B6CA8">Jan 16</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q2 2026</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q3 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q4 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#884EA0;white-space:nowrap;border-left:4px solid #884EA0;background:white">Queen Restaurant and Lounge</td>
+  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Biannual</td>
+  <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
+    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
+    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
+  </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
   <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#2E4057;white-space:nowrap;border-left:4px solid #2E4057;background:white">TIH</td>
   <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
