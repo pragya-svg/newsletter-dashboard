@@ -33,11 +33,11 @@ td{vertical-align:middle}
 <div class="topbar">
   <div>
     <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
-    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 28, 2026 at 12:17 PM</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · May 28, 2026 at 12:43 PM</div>
   </div>
   <div style="display:flex;gap:24px">
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">11</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">8</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">9</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
   </div>
 </div>
 
@@ -51,11 +51,11 @@ td{vertical-align:middle}
   <div id="tab-status" class="tab-panel active">
     <div class="controls">
       <select id="proj-picker" onchange="pickProject(this.value)">
-        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="direct eb-5: lasalle chicago">Direct EB-5: LaSalle Chicago</option><option value="direct eb-5: queen restaurant">Direct EB-5: Queen Restaurant</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="marriott la live">Marriott LA Live</option><option value="marriott pearl district (portland)">Marriott Pearl District (Portland)</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club phase iii (lodgeside)">Yellowstone Club Phase III (Lodgeside)</option><option value="yellowstone club village phase 2">Yellowstone Club Village Phase 2</option>
+        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="direct eb-5: lasalle chicago">Direct EB-5: LaSalle Chicago</option><option value="direct eb-5: queen restaurant">Direct EB-5: Queen Restaurant</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="marriott la live">Marriott LA Live</option><option value="marriott pearl district (portland)">Marriott Pearl District (Portland)</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
       </select>
-      <button class="filter-btn active" onclick="filterStatus('all',this)">All (19)</button>
-      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (11)</button>
-      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (8)</button>
+      <button class="filter-btn active" onclick="filterStatus('all',this)">All (18)</button>
+      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (9)</button>
+      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (9)</button>
       <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
         <option value="oldest" selected>Sort: Last Sent (Oldest)</option>
         <option value="newest">Sort: Last Sent (Newest)</option>
@@ -71,31 +71,7 @@ td{vertical-align:middle}
         <th style="width:10%">Days Since</th>
         <th style="width:10%;text-align:center">Status</th>
       </tr></thead>
-      <tbody id="proj-tbody"><tr class="proj-row" data-name="yellowstone club phase iii (lodgeside)" data-status="overdue" data-days="9999"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club Phase III (Lodgeside)</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="yellowstone club village phase 2" data-status="overdue" data-days="9999"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#7B5EA7;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club Village Phase 2</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="marriott pearl district (portland)" data-status="overdue" data-days="9999"
+      <tbody id="proj-tbody"><tr class="proj-row" data-name="marriott pearl district (portland)" data-status="overdue" data-days="9999"
           style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
@@ -287,6 +263,18 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">CN – K-1 Section Clarification: Moncayo Q4 2025 (Excel only)</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">58d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
+</tr><tr class="proj-row" data-name="yellowstone club" data-status="ok" data-days="77"
+          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E67E22;white-space:nowrap">Mar 12, 2026</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Yellowstone Club Phase II - Q1 2026 Investor Newsletter</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">77d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
 </tr><tr class="proj-row" data-name="the montage" data-status="ok" data-days="153"
           style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
   <td style="padding:14px 20px">
@@ -428,18 +416,12 @@ td{vertical-align:middle}
     <div style="font-weight:700;color:#27AE60">🟢 Dec 26, 2025</div>
     <div style="color:#AAB;font-size:10px;margin-top:2px">153d ago</div>
   </td><td colspan="2" style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 1 (Jan–Jun 2026)</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td colspan="2" style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Send 2 (Jul–Dec 2026)</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#6A4C93;white-space:nowrap;border-left:4px solid #6A4C93;background:white">Yellowstone Club Phase III (Lodgeside)</td>
+  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#6A4C93;white-space:nowrap;border-left:4px solid #6A4C93;background:white">Yellowstone Club</td>
   <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
   <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
-    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
-    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
-  </td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px solid #E0E6ED;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q1 2026</div><div style="font-size:11px;color:#AAB">—</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q2 2026</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q3 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q4 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr><tr>
-  <td style="padding:10px 14px;font-weight:900;font-size:13px;color:#7B5EA7;white-space:nowrap;border-left:4px solid #7B5EA7;background:white">Yellowstone Club Village Phase 2</td>
-  <td style="padding:10px 8px;font-size:11px;color:#888;white-space:nowrap;background:white">Quarterly</td>
-  <td style="padding:10px 8px;font-size:11px;white-space:nowrap;background:white">
-    <div style="font-weight:700;color:#E74C3C">🔴 Never</div>
-    <div style="color:#AAB;font-size:10px;margin-top:2px">—</div>
-  </td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px solid #E0E6ED;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q1 2026</div><div style="font-size:11px;color:#AAB">—</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q2 2026</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q3 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q4 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr></tbody>
+    <div style="font-weight:700;color:#27AE60">🟢 Mar 12, 2026</div>
+    <div style="color:#AAB;font-size:10px;margin-top:2px">77d ago</div>
+  </td><td style="padding:8px 10px;text-align:center;background:#EBF8F2;border:2px solid #27AE60;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q1 2026</div><div style="font-size:12px;font-weight:800;color:#1B6CA8">Mar 12</div></td><td style="padding:8px 10px;text-align:center;background:#FFFBF0;border:2px solid #F39C12;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q2 2026</div><div style="font-size:11px;font-weight:600;color:#E67E22">Pending</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q3 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td><td style="padding:8px 10px;text-align:center;background:#F8F9FA;border:1px dashed #D0D7DE;border-radius:6px;min-width:120px"><div style="font-size:9px;color:#AAB;margin-bottom:4px;font-weight:600">Q4 2026</div><div style="font-size:11px;color:#CCC">Upcoming</div></td></tr></tbody>
 </table>
 </div>
   </div>
