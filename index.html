@@ -33,7 +33,7 @@ td{vertical-align:middle}
 <div class="topbar">
   <div>
     <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
-    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · Jul 03, 2026 at 05:26 PM</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · Jul 03, 2026 at 05:34 PM</div>
   </div>
   <div style="display:flex;gap:24px">
     <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">7</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
@@ -57,8 +57,8 @@ td{vertical-align:middle}
       <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (7)</button>
       <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (9)</button>
       <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
-        <option value="oldest" selected>Sort: Last Sent (Oldest)</option>
-        <option value="newest">Sort: Last Sent (Newest)</option>
+        <option value="oldest">Sort: Last Sent (Oldest)</option>
+        <option value="newest" selected>Sort: Last Sent (Newest)</option>
         <option value="overdue">Sort: Most Overdue</option>
         <option value="az">Sort: A → Z</option>
       </select>
@@ -392,7 +392,7 @@ td{vertical-align:middle}
 </div>
 
 <script>
-window.onload=function(){sortRows('oldest');};
+window.onload=function(){sortRows('newest');};
 function switchTab(name,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
