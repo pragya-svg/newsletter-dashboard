@@ -33,11 +33,11 @@ td{vertical-align:middle}
 <div class="topbar">
   <div>
     <div style="font-size:17px;font-weight:900">EB5 United — Newsletter Status</div>
-    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · Jul 08, 2026 at 10:17 AM</div>
+    <div style="font-size:11px;opacity:.55;margin-top:3px">Auto-synced from Mailchimp · Jul 08, 2026 at 06:03 PM</div>
   </div>
   <div style="display:flex;gap:24px">
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">8</div><div style="font-size:10px;opacity:.7;margin-top:1px">Overdue</div></div>
-    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">8</div><div style="font-size:10px;opacity:.7;margin-top:1px">On Track</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#FF6B6B">4</div><div style="font-size:10px;opacity:.7;margin-top:1px">No Email</div></div>
+    <div style="text-align:center"><div style="font-size:24px;font-weight:900;color:#6BCB77">15</div><div style="font-size:10px;opacity:.7;margin-top:1px">Sent (8mo)</div></div>
   </div>
 </div>
 
@@ -51,11 +51,11 @@ td{vertical-align:middle}
   <div id="tab-status" class="tab-panel active">
     <div class="controls">
       <select id="proj-picker" onchange="pickProject(this.value)">
-        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="cormont">Cormont</option><option value="lasalle chicago (direct)">LaSalle Chicago (Direct)</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="queen's">Queen's</option><option value="tih">TIH</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
+        <option value="">All Projects</option><option value="bsih">BSIH</option><option value="casa lucera">Casa Lucera</option><option value="casa lucera (redeployment)">Casa Lucera (Redeployment)</option><option value="cormont">Cormont</option><option value="lasalle chicago (direct)">LaSalle Chicago (Direct)</option><option value="lasalle hotel">LaSalle Hotel</option><option value="lakefront estates & villas">Lakefront Estates & Villas</option><option value="long cove">Long Cove</option><option value="moncayo">Moncayo</option><option value="moxy (wynwood)">Moxy (Wynwood)</option><option value="nine orchard">Nine Orchard</option><option value="nine orchard (redeployment)">Nine Orchard (Redeployment)</option><option value="one&only moonlight basin">One&Only Moonlight Basin</option><option value="queen's">Queen's</option><option value="tih">TIH</option><option value="tih (redeployment)">TIH (Redeployment)</option><option value="teton outing club">Teton Outing Club</option><option value="the montage">The Montage</option><option value="yellowstone club">Yellowstone Club</option>
       </select>
-      <button class="filter-btn active" onclick="filterStatus('all',this)">All (16)</button>
-      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 Overdue (8)</button>
-      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 On Track (8)</button>
+      <button class="filter-btn active" onclick="filterStatus('all',this)">All (19)</button>
+      <button class="filter-btn" onclick="filterStatus('ok',this)" style="border-color:#27AE60;color:#27AE60">🟢 Sent (15)</button>
+      <button class="filter-btn" onclick="filterStatus('overdue',this)" style="border-color:#E74C3C;color:#E74C3C">🔴 No Email (4)</button>
       <select id="sort-select" onchange="sortRows(this.value)" style="margin-left:auto">
         <option value="oldest">Sort: Last Sent (Oldest)</option>
         <option value="newest" selected>Sort: Last Sent (Newest)</option>
@@ -65,109 +65,13 @@ td{vertical-align:middle}
     </div>
     <table>
       <thead><tr>
-        <th style="width:30%">Project</th>
-        <th style="width:20%">Last Sent Date</th>
-        <th style="width:30%">Campaign Name</th>
-        <th style="width:10%">Days Since</th>
+        <th style="width:28%">Project</th>
+        <th style="width:16%">Date Sent</th>
+        <th style="width:36%">Most Recent Email — Subject</th>
+        <th style="width:10%">Days Ago</th>
         <th style="width:10%;text-align:center">Status</th>
       </tr></thead>
-      <tbody id="proj-tbody"><tr class="proj-row" data-name="cormont" data-status="overdue" data-days="9999"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#1A7A6E;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Cormont</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Never sent</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">—</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="lasalle chicago (direct)" data-status="overdue" data-days="972"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#2874A6;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle Chicago (Direct)</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Nov 09, 2023</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">LaSalle: 2023 Biannual Update #2</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">972d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="bsih" data-status="overdue" data-days="247"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#922B21;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">BSIH</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Nov 03, 2025</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Formal Notification of Redeployment of EB-5 Investment</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">247d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="nine orchard" data-status="overdue" data-days="328"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Aug 14, 2025</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Nine Orchard Update: Closing Rescheduled to August 20 — No F…</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">328d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="one&only moonlight basin" data-status="overdue" data-days="189"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#0E6655;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">One&Only Moonlight Basin</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Dec 31, 2025</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">One&Only Moonlight Basin 2025 Update #4</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">189d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="lasalle hotel" data-status="overdue" data-days="245"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#1F618D;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle Hotel</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Nov 05, 2025</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">LaSalle: 2025 Biannual Update #2</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">245d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="moncayo" data-status="overdue" data-days="113"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#8B5E3C;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moncayo</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Mar 17, 2026</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">K-1 Section Clarification - Moncayo Q4 2025 Newsletter</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">113d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="the montage" data-status="overdue" data-days="194"
-          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#7D6608;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">The Montage</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">Dec 26, 2025</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Montage 2025 Biannual Investor Newsletter #2</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">194d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
-</tr><tr class="proj-row" data-name="lakefront estates & villas" data-status="ok" data-days="5"
+      <tbody id="proj-tbody"><tr class="proj-row" data-name="lakefront estates & villas" data-status="ok" data-days="5"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
@@ -178,18 +82,6 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jul 03, 2026</td>
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Lakefront Estates & Villas | Q2 2026 Investor Newsletter</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">5d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
-</tr><tr class="proj-row" data-name="yellowstone club" data-status="ok" data-days="12"
-          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
-  <td style="padding:14px 20px">
-    <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
-    </div>
-  </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jun 26, 2026</td>
-  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Yellowstone Club Lodgeside | NOID Response Submission</td>
-  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">12d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="tih" data-status="ok" data-days="14"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
@@ -215,17 +107,41 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Teton Outing Club — Q2 2026 Investor Newsletter</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">20d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
-</tr><tr class="proj-row" data-name="casa lucera" data-status="ok" data-days="34"
+</tr><tr class="proj-row" data-name="yellowstone club" data-status="ok" data-days="34"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#6A4C93;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Yellowstone Club</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jun 04, 2026</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Yellowstone Club Lodgeside | Investor Update</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">34d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="casa lucera (redeployment)" data-status="ok" data-days="34"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#76448A;flex-shrink:0"></div>
-      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Casa Lucera</span>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Casa Lucera (Redeployment)</span>
     </div>
   </td>
   <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jun 04, 2026</td>
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Casa Lucera | Redeployed Investor Newsletter</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">34d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="tih (redeployment)" data-status="ok" data-days="35"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#2E4057;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">TIH (Redeployment)</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jun 03, 2026</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Texas Infrastructure Holdings — Redeployed Investor Newslett…</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">35d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="moxy (wynwood)" data-status="ok" data-days="58"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
@@ -240,17 +156,17 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">58d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="long cove" data-status="ok" data-days="63"
-          style="border-bottom:1px solid #EEF2F7;background:#FFFBF0;cursor:default">
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
     <div style="display:flex;align-items:center;gap:10px">
       <div style="width:5px;height:36px;border-radius:3px;background:#1B6CA8;flex-shrink:0"></div>
       <span style="font-size:14px;font-weight:800;color:#1B3A5C">Long Cove</span>
     </div>
   </td>
-  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E67E22;white-space:nowrap">May 06, 2026</td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">May 06, 2026</td>
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Long Cove Q2 2026 | Investor Update</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">63d ago</td>
-  <td style="padding:14px 20px;font-size:18px;text-align:center">🟡</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
 </tr><tr class="proj-row" data-name="queen's" data-status="ok" data-days="72"
           style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
   <td style="padding:14px 20px">
@@ -263,9 +179,129 @@ td{vertical-align:middle}
   <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Queen Miami Beach — 2026 Investor Update #1</td>
   <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">72d ago</td>
   <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="moncayo" data-status="ok" data-days="117"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#8B5E3C;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Moncayo</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Mar 13, 2026</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Moncayo Q4 2025 Newsletter</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">117d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="one&only moonlight basin" data-status="ok" data-days="189"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#0E6655;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">One&Only Moonlight Basin</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Dec 31, 2025</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">One&Only Moonlight Basin 2025 Update #4</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">189d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="the montage" data-status="ok" data-days="194"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#7D6608;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">The Montage</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Dec 26, 2025</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Montage 2025 Biannual Investor Newsletter #2</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">194d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="lasalle hotel" data-status="ok" data-days="245"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#1F618D;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle Hotel</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Nov 05, 2025</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">LaSalle: 2025 Biannual Update #2</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">245d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="bsih" data-status="ok" data-days="247"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#922B21;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">BSIH</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Nov 03, 2025</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Formal Notification of Redeployment of EB-5 Investment</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">247d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="nine orchard (redeployment)" data-status="ok" data-days="370"
+          style="border-bottom:1px solid #EEF2F7;background:#F0FFF4;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard (Redeployment)</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#27AE60;white-space:nowrap">Jul 03, 2025</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">Nine Orchard Update – Redeployment Selection Window Closes J…</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">370d ago</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🟢</td>
+</tr><tr class="proj-row" data-name="cormont" data-status="overdue" data-days="9999"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#1A7A6E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Cormont</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">No email in last 8 months</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="lasalle chicago (direct)" data-status="overdue" data-days="9999"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#2874A6;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">LaSalle Chicago (Direct)</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">No email in last 8 months</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="nine orchard" data-status="overdue" data-days="9999"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#5D6D7E;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Nine Orchard</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">No email in last 8 months</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
+</tr><tr class="proj-row" data-name="casa lucera" data-status="overdue" data-days="9999"
+          style="border-bottom:1px solid #EEF2F7;background:#FFF5F5;cursor:default">
+  <td style="padding:14px 20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:5px;height:36px;border-radius:3px;background:#76448A;flex-shrink:0"></div>
+      <span style="font-size:14px;font-weight:800;color:#1B3A5C">Casa Lucera</span>
+    </div>
+  </td>
+  <td style="padding:14px 20px;font-size:13px;font-weight:700;color:#E74C3C;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:12px;color:#555;line-height:1.4">No email in last 8 months</td>
+  <td style="padding:14px 20px;font-size:12px;color:#888;white-space:nowrap">—</td>
+  <td style="padding:14px 20px;font-size:18px;text-align:center">🔴</td>
 </tr></tbody>
     </table>
-    <div style="margin-top:12px;font-size:11px;color:#AAB;text-align:right">🟢 On track &nbsp;·&nbsp; 🟡 Due soon &nbsp;·&nbsp; 🔴 Overdue &nbsp;·&nbsp; Auto-refreshes every hour</div>
+    <div style="margin-top:12px;font-size:11px;color:#AAB;text-align:right">Most recent standard newsletter per project · last 8 months · redeployments listed separately · auto-refreshes hourly</div>
   </div>
 
   <!-- TAB 2: Annual Schedule -->
